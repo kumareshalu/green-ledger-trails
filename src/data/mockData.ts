@@ -1,37 +1,3 @@
-export interface CropBatch {
-  id: string;
-  farmerName: string;
-  farmerId: string;
-  cropName: string;
-  plantingDate: string;
-  location: string;
-  status: "planted" | "growing" | "harvested" | "delivered";
-  progress: number;
-  imageUrl?: string;
-  harvestDate?: string;
-  paymentStatus: "pending" | "advance_paid" | "completed";
-}
-
-export interface Farmer {
-  id: string;
-  name: string;
-  location: string;
-  totalCrops: number;
-  rating: number;
-}
-
-export interface Buyer {
-  id: string;
-  name: string;
-  company: string;
-}
-
-export const mockFarmers: Farmer[] = [
-  { id: "F001", name: "Raj Kumar", location: "Punjab", totalCrops: 12, rating: 4.8 },
-  { id: "F002", name: "Priya Sharma", location: "Haryana", totalCrops: 8, rating: 4.9 },
-  { id: "F003", name: "Amit Patel", location: "Gujarat", totalCrops: 15, rating: 4.7 },
-];
-
 export const mockCropBatches: CropBatch[] = [
   {
     id: "CB001",
@@ -78,9 +44,1074 @@ export const mockCropBatches: CropBatch[] = [
     progress: 50,
     paymentStatus: "advance_paid",
   },
+  {
+    id: "CB005",
+    farmerName: "Lakshmi Devi",
+    farmerId: "F004",
+    cropName: "Cardamom",
+    plantingDate: "2024-08-10",
+    location: "Kerala",
+    status: "growing",
+    progress: 80,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB006",
+    farmerName: "Vikram Reddy",
+    farmerId: "F005",
+    cropName: "Red Chilli",
+    plantingDate: "2024-09-15",
+    location: "Andhra Pradesh",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2025-01-05",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB007",
+    farmerName: "Priya Sharma",
+    farmerId: "F002",
+    cropName: "Tomato",
+    plantingDate: "2024-11-20",
+    location: "Haryana",
+    status: "growing",
+    progress: 45,
+    paymentStatus: "pending",
+  },
+  {
+    id: "CB008",
+    farmerName: "Amit Patel",
+    farmerId: "F003",
+    cropName: "Groundnut",
+    plantingDate: "2024-10-01",
+    location: "Gujarat",
+    status: "growing",
+    progress: 60,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB009",
+    farmerName: "Lakshmi Devi",
+    farmerId: "F004",
+    cropName: "Pepper",
+    plantingDate: "2024-07-15",
+    location: "Kerala",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-12-20",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB010",
+    farmerName: "Vikram Reddy",
+    farmerId: "F005",
+    cropName: "Turmeric",
+    plantingDate: "2024-08-25",
+    location: "Andhra Pradesh",
+    status: "growing",
+    progress: 70,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB011",
+    farmerName: "Sunil Yadav",
+    farmerId: "F006",
+    cropName: "Potato",
+    plantingDate: "2024-10-20",
+    location: "Uttar Pradesh",
+    status: "growing",
+    progress: 55,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB012",
+    farmerName: "Manjula Bai",
+    farmerId: "F007",
+    cropName: "Coffee",
+    plantingDate: "2024-06-10",
+    location: "Karnataka",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-12-15",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB013",
+    farmerName: "Deepak Joshi",
+    farmerId: "F008",
+    cropName: "Soybean",
+    plantingDate: "2024-09-05",
+    location: "Madhya Pradesh",
+    status: "growing",
+    progress: 68,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB014",
+    farmerName: "Ramesh Naik",
+    farmerId: "F009",
+    cropName: "Onion",
+    plantingDate: "2024-10-10",
+    location: "Maharashtra",
+    status: "growing",
+    progress: 58,
+    paymentStatus: "pending",
+  },
+  {
+    id: "CB015",
+    farmerName: "Kavita Singh",
+    farmerId: "F010",
+    cropName: "Bajra",
+    plantingDate: "2024-09-25",
+    location: "Rajasthan",
+    status: "growing",
+    progress: 62,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB016",
+    farmerName: "Arjun Das",
+    farmerId: "F011",
+    cropName: "Jute",
+    plantingDate: "2024-08-15",
+    location: "West Bengal",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-12-28",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB017",
+    farmerName: "Neha Verma",
+    farmerId: "F012",
+    cropName: "Apple",
+    plantingDate: "2024-05-20",
+    location: "Uttarakhand",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-11-30",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB018",
+    farmerName: "Kiran Kumar",
+    farmerId: "F013",
+    cropName: "Maize",
+    plantingDate: "2024-09-18",
+    location: "Telangana",
+    status: "growing",
+    progress: 66,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB019",
+    farmerName: "Sunita Devi",
+    farmerId: "F014",
+    cropName: "Lentils",
+    plantingDate: "2024-10-25",
+    location: "Bihar",
+    status: "planted",
+    progress: 35,
+    paymentStatus: "pending",
+  },
+  {
+    id: "CB020",
+    farmerName: "Mohan Lal",
+    farmerId: "F015",
+    cropName: "Chickpea",
+    plantingDate: "2024-10-30",
+    location: "Chhattisgarh",
+    status: "planted",
+    progress: 28,
+    paymentStatus: "pending",
+  },
+  {
+    id: "CB021",
+    farmerName: "Geeta Rani",
+    farmerId: "F016",
+    cropName: "Mustard",
+    plantingDate: "2024-10-15",
+    location: "Odisha",
+    status: "growing",
+    progress: 52,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB022",
+    farmerName: "Prakash Patil",
+    farmerId: "F017",
+    cropName: "Banana",
+    plantingDate: "2024-07-01",
+    location: "Tamil Nadu",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-12-25",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB023",
+    farmerName: "Ravi Shankar",
+    farmerId: "F018",
+    cropName: "Tea",
+    plantingDate: "2024-06-05",
+    location: "Assam",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-12-10",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB024",
+    farmerName: "Anita Kumari",
+    farmerId: "F019",
+    cropName: "Barley",
+    plantingDate: "2024-10-22",
+    location: "Jharkhand",
+    status: "growing",
+    progress: 48,
+    paymentStatus: "pending",
+  },
+  {
+    id: "CB025",
+    farmerName: "Balaji Rao",
+    farmerId: "F020",
+    cropName: "Mango",
+    plantingDate: "2024-03-15",
+    location: "Andhra Pradesh",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-07-20",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB026",
+    farmerName: "Raj Kumar",
+    farmerId: "F001",
+    cropName: "Mustard",
+    plantingDate: "2024-11-05",
+    location: "Punjab",
+    status: "growing",
+    progress: 42,
+    paymentStatus: "pending",
+  },
+  {
+    id: "CB027",
+    farmerName: "Sunil Yadav",
+    farmerId: "F006",
+    cropName: "Cabbage",
+    plantingDate: "2024-10-28",
+    location: "Uttar Pradesh",
+    status: "growing",
+    progress: 50,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB028",
+    farmerName: "Manjula Bai",
+    farmerId: "F007",
+    cropName: "Areca Nut",
+    plantingDate: "2024-07-20",
+    location: "Karnataka",
+    status: "growing",
+    progress: 75,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB029",
+    farmerName: "Deepak Joshi",
+    farmerId: "F008",
+    cropName: "Garlic",
+    plantingDate: "2024-10-12",
+    location: "Madhya Pradesh",
+    status: "growing",
+    progress: 56,
+    paymentStatus: "advance_paid",
+  },
+  {
+    id: "CB030",
+    farmerName: "Ramesh Naik",
+    farmerId: "F009",
+    cropName: "Grapes",
+    plantingDate: "2024-02-10",
+    location: "Maharashtra",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-06-15",
+    paymentStatus: "completed",
+  },
+  {
+    id: "CB031",
+    farmerName: "Kavita Singh",
+    farmerId: "F010",
+    cropName: "Cumin",
+    plantingDate: "2024-10-18",// ==================== INTERFACES ====================
+export interface CropBatch {
+  id: string;
+  farmerName: string;
+  farmerId: string;
+  cropName: string;
+  cropCategory: CropCategory;
+  plantingDate: string;
+  location: string;
+  state: string;
+  district: string;
+  status: "planted" | "growing" | "harvested" | "delivered";
+  progress: number;
+  imageUrl?: string;
+  harvestDate?: string;
+  estimatedYield: number;
+  actualYield?: number;
+  unit: string;
+  pricePerUnit: number;
+  paymentStatus: "pending" | "advance_paid" | "completed";
+  qualityGrade?: "A+" | "A" | "B+" | "B" | "C";
+  certifications?: string[];
+  soilType?: string;
+  irrigationType?: string;
+  fertilizersUsed?: string[];
+  pesticidesUsed?: string[];
+  blockchainHash?: string;
+}
+
+export interface Farmer {
+  id: string;
+  name: string;
+  location: string;
+  state: string;
+  district: string;
+  totalCrops: number;
+  rating: number;
+  verified: boolean;
+  farmSize: number;
+  farmSizeUnit: "acres" | "hectares";
+  phone: string;
+  email?: string;
+  bankAccount?: string;
+  govtId: string;
+  specializations: CropCategory[];
+  organicCertified: boolean;
+  joinedDate: string;
+  totalEarnings: number;
+  loansAvailed: number;
+  loansPaid: number;
+}
+
+export interface Buyer {
+  id: string;
+  name: string;
+  company: string;
+  companyType: "retailer" | "wholesaler" | "processor" | "exporter" | "food_service";
+  location: string;
+  state: string;
+  rating: number;
+  verified: boolean;
+  phone: string;
+  email: string;
+  gstNumber: string;
+  totalPurchases: number;
+  preferredCrops: string[];
+  joinedDate: string;
+}
+
+export type CropCategory = "cereals" | "pulses" | "oilseeds" | "vegetables" | "fruits" | "spices" | "cash_crops" | "fiber_crops";
+
+export interface Transaction {
+  id: string;
+  cropBatchId: string;
+  farmerId: string;
+  buyerId: string;
+  amount: number;
+  date: string;
+  type: "advance" | "final_payment" | "loan";
+  status: "pending" | "completed" | "failed";
+  blockchainTxHash: string;
+}
+
+export interface LoanRequest {
+  id: string;
+  farmerId: string;
+  farmerName: string;
+  amount: number;
+  purpose: string;
+  cropBatchId?: string;
+  status: "pending" | "approved" | "disbursed" | "rejected";
+  interestRate: number;
+  tenure: number;
+  appliedDate: string;
+  approvedDate?: string;
+}
+
+export interface WeatherData {
+  location: string;
+  state: string;
+  temperature: number;
+  humidity: number;
+  rainfall: number;
+  condition: "sunny" | "cloudy" | "rainy" | "stormy";
+  forecast: string;
+}
+
+export interface MarketPrice {
+  cropName: string;
+  category: CropCategory;
+  currentPrice: number;
+  yesterdayPrice: number;
+  weeklyChange: number;
+  monthlyChange: number;
+  unit: string;
+  market: string;
+  state: string;
+  lastUpdated: string;
+}
+
+// ==================== MOCK DATA ====================
+
+export const mockFarmers: Farmer[] = [
+  {
+    id: "F001",
+    name: "Raj Kumar Singh",
+    location: "Ludhiana",
+    state: "Punjab",
+    district: "Ludhiana",
+    totalCrops: 24,
+    rating: 4.8,
+    verified: true,
+    farmSize: 15,
+    farmSizeUnit: "acres",
+    phone: "+91-98765-43210",
+    email: "raj.kumar@example.com",
+    bankAccount: "XXXX-XXXX-1234",
+    govtId: "AADHAAR-XXXX-1234",
+    specializations: ["cereals", "cash_crops"],
+    organicCertified: false,
+    joinedDate: "2023-01-15",
+    totalEarnings: 4500000,
+    loansAvailed: 2,
+    loansPaid: 1,
+  },
+  {
+    id: "F002",
+    name: "Priya Sharma",
+    location: "Karnal",
+    state: "Haryana",
+    district: "Karnal",
+    totalCrops: 18,
+    rating: 4.9,
+    verified: true,
+    farmSize: 22,
+    farmSizeUnit: "acres",
+    phone: "+91-98765-43211",
+    email: "priya.sharma@example.com",
+    bankAccount: "XXXX-XXXX-2345",
+    govtId: "AADHAAR-XXXX-2345",
+    specializations: ["cereals", "vegetables"],
+    organicCertified: true,
+    joinedDate: "2023-03-20",
+    totalEarnings: 5200000,
+    loansAvailed: 1,
+    loansPaid: 1,
+  },
+  {
+    id: "F003",
+    name: "Amit Patel",
+    location: "Ahmedabad",
+    state: "Gujarat",
+    district: "Ahmedabad",
+    totalCrops: 31,
+    rating: 4.7,
+    verified: true,
+    farmSize: 35,
+    farmSizeUnit: "acres",
+    phone: "+91-98765-43212",
+    email: "amit.patel@example.com",
+    bankAccount: "XXXX-XXXX-3456",
+    govtId: "AADHAAR-XXXX-3456",
+    specializations: ["cash_crops", "fiber_crops", "oilseeds"],
+    organicCertified: false,
+    joinedDate: "2022-11-10",
+    totalEarnings: 8900000,
+    loansAvailed: 3,
+    loansPaid: 3,
+  },
+  {
+    id: "F004",
+    name: "Lakshmi Devi",
+    location: "Wayanad",
+    state: "Kerala",
+    district: "Wayanad",
+    totalCrops: 14,
+    rating: 4.9,
+    verified: true,
+    farmSize: 8,
+    farmSizeUnit: "acres",
+    phone: "+91-98765-43213",
+    email: "lakshmi.devi@example.com",
+    bankAccount: "XXXX-XXXX-4567",
+    govtId: "AADHAAR-XXXX-4567",
+    specializations: ["spices", "fruits"],
+    organicCertified: true,
+    joinedDate: "2023-06-05",
+    totalEarnings: 3200000,
+    loansAvailed: 1,
+    loansPaid: 0,
+  },
+  {
+    id: "F005",
+    name: "Vikram Reddy",
+    location: "Guntur",
+    state: "Andhra Pradesh",
+    district: "Guntur",
+    totalCrops: 27,
+    rating: 4.6,
+    verified: true,
+    farmSize: 28,
+    farmSizeUnit: "acres",
+    phone: "+91-98765-43214",
+    email: "vikram.reddy@example.com",
+    bankAccount: "XXXX-XXXX-5678",
+    govtId: "AADHAAR-XXXX-5678",
+    specializations: ["spices", "vegetables", "pulses"],
+    organicCertified: false,
+    joinedDate: "2023-02-18",
+    totalEarnings: 6700000,
+    loansAvailed: 2,
+    loansPaid: 2,
+  },
 ];
 
-export const generateQRCode = (cropId: string): string => {
-  // Mock QR code generation - returns a placeholder
-  return `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=CropChain-${cropId}`;
-};
+export const mockBuyers: Buyer[] = [
+  {
+    id: "B001",
+    name: "Suresh Mehta",
+    company: "FreshMart Retail Chain",
+    companyType: "retailer",
+    location: "Mumbai",
+    state: "Maharashtra",
+    rating: 4.7,
+    verified: true,
+    phone: "+91-98765-54321",
+    email: "suresh@freshmart.com",
+    gstNumber: "27XXXXX1234X1Z5",
+    totalPurchases: 12500000,
+    preferredCrops: ["vegetables", "fruits", "cereals"],
+    joinedDate: "2023-01-10",
+  },
+  {
+    id: "B002",
+    name: "Anjali Gupta",
+    company: "GreenLeaf Exports",
+    companyType: "exporter",
+    location: "Delhi",
+    state: "Delhi",
+    rating: 4.9,
+    verified: true,
+    phone: "+91-98765-54322",
+    email: "anjali@greenleaf.com",
+    gstNumber: "07XXXXX2345X1Z6",
+    totalPurchases: 28000000,
+    preferredCrops: ["spices", "cereals", "pulses"],
+    joinedDate: "2022-09-15",
+  },
+  {
+    id: "B003",
+    name: "Ramesh Industries",
+    company: "Cotton Processing Ltd",
+    companyType: "processor",
+    location: "Coimbatore",
+    state: "Tamil Nadu",
+    rating: 4.5,
+    verified: true,
+    phone: "+91-98765-54323",
+    email: "ramesh@cottonprocessing.com",
+    gstNumber: "33XXXXX3456X1Z7",
+    totalPurchases: 45000000,
+    preferredCrops: ["fiber_crops"],
+    joinedDate: "2022-07-22",
+  },
+  {
+    id: "B004",
+    name: "Organic Valley",
+    company: "Organic Foods Co.",
+    companyType: "wholesaler",
+    location: "Bangalore",
+    state: "Karnataka",
+    rating: 4.8,
+    verified: true,
+    phone: "+91-98765-54324",
+    email: "info@organicvalley.com",
+    gstNumber: "29XXXXX4567X1Z8",
+    totalPurchases: 18500000,
+    preferredCrops: ["vegetables", "fruits", "pulses", "spices"],
+    joinedDate: "2023-04-11",
+  },
+];
+
+export const mockCropBatches: CropBatch[] = [
+  {
+    id: "CB001",
+    farmerName: "Raj Kumar Singh",
+    farmerId: "F001",
+    cropName: "Basmati Wheat",
+    cropCategory: "cereals",
+    plantingDate: "2024-10-15",
+    location: "Ludhiana",
+    state: "Punjab",
+    district: "Ludhiana",
+    status: "growing",
+    progress: 65,
+    estimatedYield: 2500,
+    unit: "quintals",
+    pricePerUnit: 2100,
+    paymentStatus: "advance_paid",
+    qualityGrade: "A",
+    certifications: ["GAP Certified"],
+    soilType: "Alluvial",
+    irrigationType: "Drip",
+    fertilizersUsed: ["NPK 12-32-16", "Urea"],
+    pesticidesUsed: ["Neem Oil"],
+    blockchainHash: "0x7d3f8a9b2c1e4567890abcdef1234567890abcdef",
+  },
+  {
+    id: "CB002",
+    farmerName: "Priya Sharma",
+    farmerId: "F002",
+    cropName: "Basmati Rice",
+    cropCategory: "cereals",
+    plantingDate: "2024-11-01",
+    location: "Karnal",
+    state: "Haryana",
+    district: "Karnal",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2025-01-10",
+    estimatedYield: 3200,
+    actualYield: 3350,
+    unit: "quintals",
+    pricePerUnit: 4500,
+    paymentStatus: "completed",
+    qualityGrade: "A+",
+    certifications: ["Organic", "GAP Certified"],
+    soilType: "Clay Loam",
+    irrigationType: "Flood",
+    fertilizersUsed: ["Organic Compost"],
+    pesticidesUsed: ["Biological Control"],
+    blockchainHash: "0x9a2b3c4d5e6f7890abcdef1234567890abcdef12",
+  },
+  {
+    id: "CB003",
+    farmerName: "Amit Patel",
+    farmerId: "F003",
+    cropName: "BT Cotton",
+    cropCategory: "fiber_crops",
+    plantingDate: "2024-09-20",
+    location: "Ahmedabad",
+    state: "Gujarat",
+    district: "Ahmedabad",
+    status: "planted",
+    progress: 30,
+    estimatedYield: 18,
+    unit: "quintals/acre",
+    pricePerUnit: 6800,
+    paymentStatus: "pending",
+    qualityGrade: "B+",
+    soilType: "Black Cotton Soil",
+    irrigationType: "Sprinkler",
+    fertilizersUsed: ["DAP", "Potash"],
+    pesticidesUsed: ["Chlorpyrifos"],
+    blockchainHash: "0x1b2c3d4e5f6789abcdef01234567890abcdef123",
+  },
+  {
+    id: "CB004",
+    farmerName: "Raj Kumar Singh",
+    farmerId: "F001",
+    cropName: "Sugarcane",
+    cropCategory: "cash_crops",
+    plantingDate: "2024-10-05",
+    location: "Ludhiana",
+    state: "Punjab",
+    district: "Ludhiana",
+    status: "growing",
+    progress: 50,
+    estimatedYield: 850,
+    unit: "quintals",
+    pricePerUnit: 350,
+    paymentStatus: "advance_paid",
+    qualityGrade: "A",
+    soilType: "Sandy Loam",
+    irrigationType: "Drip",
+    fertilizersUsed: ["NPK 19-19-19"],
+    pesticidesUsed: ["Imidacloprid"],
+    blockchainHash: "0x3c4d5e6f789abcdef01234567890abcdef123456",
+  },
+  {
+    id: "CB005",
+    farmerName: "Lakshmi Devi",
+    farmerId: "F004",
+    cropName: "Cardamom",
+    cropCategory: "spices",
+    plantingDate: "2024-08-10",
+    location: "Wayanad",
+    state: "Kerala",
+    district: "Wayanad",
+    status: "growing",
+    progress: 80,
+    estimatedYield: 250,
+    unit: "kg",
+    pricePerUnit: 2400,
+    paymentStatus: "advance_paid",
+    qualityGrade: "A+",
+    certifications: ["Organic", "Fairtrade"],
+    soilType: "Red Laterite",
+    irrigationType: "Natural Rainfall",
+    fertilizersUsed: ["Organic Manure"],
+    pesticidesUsed: [],
+    blockchainHash: "0x5d6e7f89abcdef01234567890abcdef123456789",
+  },
+  {
+    id: "CB006",
+    farmerName: "Vikram Reddy",
+    farmerId: "F005",
+    cropName: "Red Chilli",
+    cropCategory: "spices",
+    plantingDate: "2024-09-15",
+    location: "Guntur",
+    state: "Andhra Pradesh",
+    district: "Guntur",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2025-01-05",
+    estimatedYield: 1800,
+    actualYield: 1950,
+    unit: "kg",
+    pricePerUnit: 180,
+    paymentStatus: "completed",
+    qualityGrade: "A",
+    certifications: ["Guntur Chilli GI Tag"],
+    soilType: "Red Sandy Loam",
+    irrigationType: "Drip",
+    fertilizersUsed: ["NPK 10-26-26"],
+    pesticidesUsed: ["Mancozeb"],
+    blockchainHash: "0x7e8f9abcdef01234567890abcdef1234567890ab",
+  },
+  {
+    id: "CB007",
+    farmerName: "Priya Sharma",
+    farmerId: "F002",
+    cropName: "Tomato",
+    cropCategory: "vegetables",
+    plantingDate: "2024-11-20",
+    location: "Karnal",
+    state: "Haryana",
+    district: "Karnal",
+    status: "growing",
+    progress: 45,
+    estimatedYield: 2800,
+    unit: "kg",
+    pricePerUnit: 25,
+    paymentStatus: "pending",
+    qualityGrade: "A",
+    certifications: ["Organic"],
+    soilType: "Alluvial",
+    irrigationType: "Drip",
+    fertilizersUsed: ["Organic Compost"],
+    pesticidesUsed: ["Neem Oil"],
+    blockchainHash: "0x9fabc def01234567890abcdef1234567890abcd",
+  },
+  {
+    id: "CB008",
+    farmerName: "Amit Patel",
+    farmerId: "F003",
+    cropName: "Groundnut",
+    cropCategory: "oilseeds",
+    plantingDate: "2024-10-01",
+    location: "Ahmedabad",
+    state: "Gujarat",
+    district: "Ahmedabad",
+    status: "growing",
+    progress: 60,
+    estimatedYield: 1500,
+    unit: "kg",
+    pricePerUnit: 60,
+    paymentStatus: "advance_paid",
+    qualityGrade: "B+",
+    soilType: "Sandy Loam",
+    irrigationType: "Rainfed",
+    fertilizersUsed: ["SSP", "Gypsum"],
+    pesticidesUsed: ["Chlorpyrifos"],
+    blockchainHash: "0xabcdef01234567890abcdef1234567890abcdef0",
+  },
+  {
+    id: "CB009",
+    farmerName: "Lakshmi Devi",
+    farmerId: "F004",
+    cropName: "Pepper",
+    cropCategory: "spices",
+    plantingDate: "2024-07-15",
+    location: "Wayanad",
+    state: "Kerala",
+    district: "Wayanad",
+    status: "harvested",
+    progress: 100,
+    harvestDate: "2024-12-20",
+    estimatedYield: 180,
+    actualYield: 195,
+    unit: "kg",
+    pricePerUnit: 650,
+    paymentStatus: "completed",
+    qualityGrade: "A+",
+    certifications: ["Organic", "Fairtrade"],
+    soilType: "Red Laterite",
+    irrigationType: "Natural Rainfall",
+    fertilizersUsed: ["Organic Manure"],
+    pesticidesUsed: [],
+    blockchainHash: "0xbcdef01234567890abcdef1234567890abcdef01",
+  },
+  {
+    id: "CB010",
+    farmerName: "Vikram Reddy",
+    farmerId: "F005",
+    cropName: "Turmeric",
+    cropCategory: "spices",
+    plantingDate: "2024-08-25",
+    location: "Guntur",
+    state: "Andhra Pradesh",
+    district: "Guntur",
+    status: "growing",
+    progress: 70,
+    estimatedYield: 2200,
+    unit: "kg",
+    pricePerUnit: 95,
+    paymentStatus: "advance_paid",
+    qualityGrade: "A",
+    certifications: ["Guntur Turmeric GI Tag"],
+    soilType: "Red Sandy Loam",
+    irrigationType: "Drip",
+    fertilizersUsed: ["Organic Compost", "Vermicompost"],
+    pesticidesUsed: ["Trichoderma"],
+    blockchainHash: "0xcdef01234567890abcdef1234567890abcdef012",
+  },
+];
+
+export const mockTransactions: Transaction[] = [
+  {
+    id: "TX001",
+    cropBatchId: "CB001",
+    farmerId: "F001",
+    buyerId: "B001",
+    amount: 1050000,
+    date: "2024-11-15",
+    type: "advance",
+    status: "completed",
+    blockchainTxHash: "0xabc123...def456",
+  },
+  {
+    id: "TX002",
+    cropBatchId: "CB002",
+    farmerId: "F002",
+    buyerId: "B002",
+    amount: 15075000,
+    date: "2025-01-12",
+    type: "final_payment",
+    status: "completed",
+    blockchainTxHash: "0xdef456...ghi789",
+  },
+  {
+    id: "TX003",
+    cropBatchId: "CB006",
+    farmerId: "F005",
+    buyerId: "B002",
+    amount: 351000,
+    date: "2025-01-08",
+    type: "final_payment",
+    status: "completed",
+    blockchainTxHash: "0xghi789...jkl012",
+  },
+];
+
+export const mockLoanRequests: LoanRequest[] = [
+  {
+    id: "LN001",
+    farmerId: "F001",
+    farmerName: "Raj Kumar Singh",
+    amount: 250000,
+    purpose: "Purchase of seeds and fertilizers",
+    cropBatchId: "CB001",
+    status: "disbursed",
+    interestRate: 7.5,
+    tenure: 6,
+    appliedDate: "2024-10-10",
+    approvedDate: "2024-10-12",
+  },
+  {
+    id: "LN002",
+    farmerId: "F004",
+    farmerName: "Lakshmi Devi",
+    amount: 150000,
+    purpose: "Irrigation system upgrade",
+    status: "approved",
+    interestRate: 8.0,
+    tenure: 12,
+    appliedDate: "2024-11-05",
+    approvedDate: "2024-11-08",
+  },
+  {
+    id: "LN003",
+    farmerId: "F003",
+    farmerName: "Amit Patel",
+    amount: 500000,
+    purpose: "Farm equipment purchase",
+    status: "pending",
+    interestRate: 7.0,
+    tenure: 24,
+    appliedDate: "2024-11-20",
+  },
+];
+
+export const mockWeatherData: WeatherData[] = [
+  {
+    location: "Ludhiana",
+    state: "Punjab",
+    temperature: 22,
+    humidity: 65,
+    rainfall: 0,
+    condition: "sunny",
+    forecast: "Clear skies for next 3 days",
+  },
+  {
+    location: "Karnal",
+    state: "Haryana",
+    temperature: 20,
+    humidity: 70,
+    rainfall: 2,
+    condition: "cloudy",
+    forecast: "Light rain expected tomorrow",
+  },
+  {
+    location: "Ahmedabad",
+    state: "Gujarat",
+    temperature: 28,
+    humidity: 45,
+    rainfall: 0,
+    condition: "sunny",
+    forecast: "Hot and dry conditions continue",
+  },
+  {
+    location: "Wayanad",
+    state: "Kerala",
+    temperature: 24,
+    humidity: 85,
+    rainfall: 15,
+    condition: "rainy",
+    forecast: "Moderate rain for next 2 days",
+  },
+  {
+    location: "Guntur",
+    state: "Andhra Pradesh",
+    temperature: 26,
+    humidity: 60,
+    rainfall: 0,
+    condition: "sunny",
+    forecast: "Warm and pleasant weather",
+  },
+];
+
+export const mockMarketPrices: MarketPrice[] = [
+  {
+    cropName: "Basmati Wheat",
+    category: "cereals",
+    currentPrice: 2100,
+    yesterdayPrice: 2050,
+    weeklyChange: 2.4,
+    monthlyChange: 5.2,
+    unit: "quintal",
+    market: "Ludhiana Mandi",
+    state: "Punjab",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Basmati Rice",
+    category: "cereals",
+    currentPrice: 4500,
+    yesterdayPrice: 4480,
+    weeklyChange: 1.1,
+    monthlyChange: 3.8,
+    unit: "quintal",
+    market: "Karnal Mandi",
+    state: "Haryana",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Cotton",
+    category: "fiber_crops",
+    currentPrice: 6800,
+    yesterdayPrice: 6750,
+    weeklyChange: 0.7,
+    monthlyChange: -2.1,
+    unit: "quintal",
+    market: "Ahmedabad Mandi",
+    state: "Gujarat",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Cardamom",
+    category: "spices",
+    currentPrice: 2400,
+    yesterdayPrice: 2350,
+    weeklyChange: 2.1,
+    monthlyChange: 8.5,
+    unit: "kg",
+    market: "Kochi Spice Market",
+    state: "Kerala",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Red Chilli",
+    category: "spices",
+    currentPrice: 180,
+    yesterdayPrice: 175,
+    weeklyChange: 2.9,
+    monthlyChange: 12.5,
+    unit: "kg",
+    market: "Guntur Mandi",
+    state: "Andhra Pradesh",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Tomato",
+    category: "vegetables",
+    currentPrice: 25,
+    yesterdayPrice: 28,
+    weeklyChange: -10.7,
+    monthlyChange: -15.2,
+    unit: "kg",
+    market: "Azadpur Mandi",
+    state: "Delhi",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Groundnut",
+    category: "oilseeds",
+    currentPrice: 60,
+    yesterdayPrice: 59,
+    weeklyChange: 1.7,
+    monthlyChange: 4.3,
+    unit: "kg",
+    market: "Rajkot Mandi",
+    state: "Gujarat",
+    lastUpdated: "2024-11-15",
+  },
+  {
+    cropName: "Pepper",
+    category: "spices",
+    currentPrice: 650,
+    yesterdayPrice: 645,
+    weeklyChange: 0.8,
+    monthlyChange: 6.5,
+    unit: "kg",
+    market: "Kochi Spice Market",
+    state: "Kerala",
+    lastUpdated: "2024-11-15",
+  },
+];
+
+export
