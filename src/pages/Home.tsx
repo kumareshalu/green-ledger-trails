@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Sprout, ShoppingCart, User, QrCode, Shield, TrendingUp, ChevronDown, CheckCircle, BarChart3, Lock, Zap, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { Sprout, ShoppingCart, User, QrCode, Shield, TrendingUp, ChevronDown, CheckCircle, BarChart3, Lock, Zap, Menu, X } from 'lucide-react';
 
 const EnhancedHome = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -60,6 +58,10 @@ const EnhancedHome = () => {
     document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
+
   const features = [
     {
       icon: Sprout,
@@ -89,21 +91,34 @@ const EnhancedHome = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
+      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2 font-bold text-xl text-foreground">
-              <Sprout className="h-6 w-6 text-primary" />
+            <button 
+              onClick={() => navigateTo('/')}
+              className="flex items-center gap-2 font-bold text-xl text-gray-900 hover:text-green-600 transition-colors"
+            >
+              <Sprout className="h-6 w-6 text-green-600" />
               Crop-Chain
-            </div>
+            </button>
             
             <div className="hidden md:flex items-center gap-6">
-              <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
-              <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
-              <Button size="sm" className="bg-primary hover:bg-primary/90">Get Started</Button>
+              <a href="#features" className="text-gray-700 hover:text-green-600 transition-colors">Features</a>
+              <a href="#how-it-works" className="text-gray-700 hover:text-green-600 transition-colors">How It Works</a>
+              <button 
+                onClick={() => navigateTo('/About')}
+                className="text-gray-700 hover:text-green-600 transition-colors"
+              >
+                About
+              </button>
+              <button 
+                onClick={() => navigateTo('/FarmerDashboard')}
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+              >
+                Get Started
+              </button>
             </div>
             
             <button 
@@ -116,12 +131,22 @@ const EnhancedHome = () => {
           
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-border">
+            <div className="md:hidden py-4 border-t border-gray-200">
               <div className="flex flex-col gap-4">
-                <a href="#features" className="text-foreground hover:text-primary transition-colors">Features</a>
-                <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">How It Works</a>
-                <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
-                <Button size="sm" className="bg-primary hover:bg-primary/90 w-full">Get Started</Button>
+                <a href="#features" className="text-gray-700 hover:text-green-600 transition-colors">Features</a>
+                <a href="#how-it-works" className="text-gray-700 hover:text-green-600 transition-colors">How It Works</a>
+                <button 
+                  onClick={() => navigateTo('/About')}
+                  className="text-left text-gray-700 hover:text-green-600 transition-colors"
+                >
+                  About
+                </button>
+                <button 
+                  onClick={() => navigateTo('/FarmerDashboard')}
+                  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-center"
+                >
+                  Get Started
+                </button>
               </div>
             </div>
           )}
@@ -131,24 +156,24 @@ const EnhancedHome = () => {
       {/* Hero Section with Parallax */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div 
-          className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 z-0"
+          className="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 z-0"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-block">
-                <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+                <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
                   🌱 Trusted by 1000+ Farmers
                 </span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
                 Crop-Chain Smart Ledger
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-gray-600">
                 A Transparent Farm-to-Table Traceability Platform
               </p>
-              <p className="text-lg text-foreground/80">
+              <p className="text-lg text-gray-700">
                 Connecting farmers, buyers, and consumers through digital transparency.
                 Track your food from seed to plate with blockchain-powered security.
               </p>
@@ -156,32 +181,41 @@ const EnhancedHome = () => {
               {/* Statistics */}
               <div className="grid grid-cols-3 gap-4 pt-4 pb-2">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{stats.farmers}+</div>
-                  <div className="text-sm text-muted-foreground">Farmers</div>
+                  <div className="text-3xl font-bold text-green-600">{stats.farmers}+</div>
+                  <div className="text-sm text-gray-600">Farmers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{stats.crops}+</div>
-                  <div className="text-sm text-muted-foreground">Crops Tracked</div>
+                  <div className="text-3xl font-bold text-green-600">{stats.crops}+</div>
+                  <div className="text-sm text-gray-600">Crops Tracked</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{stats.consumers}+</div>
-                  <div className="text-sm text-muted-foreground">Consumers</div>
+                  <div className="text-3xl font-bold text-green-600">{stats.consumers}+</div>
+                  <div className="text-sm text-gray-600">Consumers</div>
                 </div>
               </div>
               
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all">
-                  <Sprout className="mr-2 h-5 w-5" />
+                <button 
+                  onClick={() => navigateTo('/FarmerDashboard')}
+                  className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+                >
+                  <Sprout className="h-5 w-5" />
                   Farmer Portal
-                </Button>
-                <Button size="lg" variant="secondary" className="shadow-lg hover:shadow-xl transition-all">
-                  <ShoppingCart className="mr-2 h-5 w-5" />
+                </button>
+                <button 
+                  onClick={() => navigateTo('/BuyerDashboard')}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+                >
+                  <ShoppingCart className="h-5 w-5" />
                   Buyer Portal
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 transition-all">
-                  <User className="mr-2 h-5 w-5" />
+                </button>
+                <button 
+                  onClick={() => navigateTo('/ConsumerDashboard')}
+                  className="px-6 py-3 bg-white hover:bg-gray-50 text-green-600 border-2 border-green-600 rounded-lg transition-all flex items-center gap-2"
+                >
+                  <User className="h-5 w-5" />
                   Consumer Portal
-                </Button>
+                </button>
               </div>
             </div>
             
@@ -192,14 +226,14 @@ const EnhancedHome = () => {
                   <p className="text-xl font-semibold">Sustainable Farming</p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-card p-4 rounded-xl shadow-lg border border-border backdrop-blur-sm">
+              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-200 backdrop-blur-sm">
                 <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <Shield className="h-6 w-6 text-primary" />
+                  <div className="bg-green-100 p-3 rounded-lg">
+                    <Shield className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">100% Traceable</div>
-                    <div className="text-sm text-muted-foreground">Farm to Table</div>
+                    <div className="font-bold text-gray-900">100% Traceable</div>
+                    <div className="text-sm text-gray-600">Farm to Table</div>
                   </div>
                 </div>
               </div>
@@ -210,25 +244,25 @@ const EnhancedHome = () => {
         {/* Scroll Indicator */}
         <button 
           onClick={scrollToFeatures}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer bg-primary/10 p-2 rounded-full hover:bg-primary/20 transition-colors"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer bg-green-100 p-2 rounded-full hover:bg-green-200 transition-colors"
           aria-label="Scroll to features"
         >
-          <ChevronDown className="h-6 w-6 text-primary" />
+          <ChevronDown className="h-6 w-6 text-green-600" />
         </button>
       </section>
 
       {/* Benefits Bar */}
-      <section className="py-8 bg-primary/5 border-y border-border">
+      <section className="py-8 bg-green-50 border-y border-gray-200">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {benefits.map((benefit, idx) => (
               <div key={idx} className="flex items-center gap-3 justify-center">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <benefit.icon className="h-5 w-5 text-primary" />
+                <div className="bg-green-100 p-2 rounded-lg">
+                  <benefit.icon className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-foreground">{benefit.title}</div>
-                  <div className="text-xs text-muted-foreground">{benefit.desc}</div>
+                  <div className="font-semibold text-sm text-gray-900">{benefit.title}</div>
+                  <div className="text-xs text-gray-600">{benefit.desc}</div>
                 </div>
               </div>
             ))}
@@ -237,44 +271,42 @@ const EnhancedHome = () => {
       </section>
 
       {/* Features Section with Interactive Cards */}
-      <section id="features" className="py-20 bg-secondary/30">
+      <section id="features" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Platform Features</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Platform Features</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Empowering the agricultural supply chain with transparency and trust
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, idx) => (
-              <Card 
+              <div
                 key={idx}
-                className={`border-border hover:shadow-lg transition-all duration-300 cursor-pointer ${
-                  activeFeature === idx ? 'ring-2 ring-primary shadow-xl scale-105' : ''
+                className={`bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 cursor-pointer ${
+                  activeFeature === idx ? 'ring-2 ring-green-600 shadow-xl scale-105' : ''
                 }`}
                 onMouseEnter={() => setActiveFeature(idx)}
               >
-                <CardContent className="pt-6">
-                  <div className={`bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform ${
-                    activeFeature === idx ? 'scale-110' : ''
-                  }`}>
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground mb-4">
-                    {feature.description}
-                  </p>
-                  <div className="space-y-2">
-                    {feature.benefits.map((benefit, bidx) => (
-                      <div key={bidx} className="flex items-center gap-2 text-sm text-foreground/70">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                <div className={`bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform ${
+                  activeFeature === idx ? 'scale-110' : ''
+                }`}>
+                  <feature.icon className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-600 mb-4">
+                  {feature.description}
+                </p>
+                <div className="space-y-2">
+                  {feature.benefits.map((benefit, bidx) => (
+                    <div key={bidx} className="flex items-center gap-2 text-sm text-gray-700">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                      <span>{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
           
@@ -285,7 +317,7 @@ const EnhancedHome = () => {
                 key={idx}
                 onClick={() => setActiveFeature(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  activeFeature === idx ? 'bg-primary w-8' : 'bg-primary/30'
+                  activeFeature === idx ? 'bg-green-600 w-8' : 'bg-green-300'
                 }`}
                 aria-label={`View feature ${idx + 1}`}
               />
@@ -295,11 +327,11 @@ const EnhancedHome = () => {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-background">
+      <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">How It Works</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Simple steps to transparent agriculture
             </p>
           </div>
@@ -312,13 +344,13 @@ const EnhancedHome = () => {
               { step: "4", title: "Scan", desc: "Consumers scan QR codes for full transparency" }
             ].map((item, idx) => (
               <div key={idx} className="text-center relative">
-                <div className="bg-primary text-primary-foreground w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">
+                <div className="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-lg text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
                 {idx < 3 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-primary/20" 
+                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-green-200" 
                        style={{ transform: 'translateX(-50%)' }} />
                 )}
               </div>
@@ -328,32 +360,38 @@ const EnhancedHome = () => {
       </section>
 
       {/* CTA Section with Enhanced Design */}
-      <section id="about" className="py-20 bg-gradient-to-br from-primary/10 to-accent/5">
+      <section id="about" className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-6">
-            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
               <Zap className="inline h-4 w-4 mr-1" />
               Join the Revolution
             </div>
-            <h2 className="text-4xl font-bold text-foreground">Ready to Get Started?</h2>
-            <p className="text-xl text-muted-foreground">
+            <h2 className="text-4xl font-bold text-gray-900">Ready to Get Started?</h2>
+            <p className="text-xl text-gray-600">
               Join the transparent agriculture revolution. Choose your role and experience the future of farm-to-table tracking.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
+              <button 
+                onClick={() => navigateTo('/About')}
+                className="px-6 py-3 bg-white hover:bg-gray-50 text-green-600 border-2 border-green-600 rounded-lg transition-colors"
+              >
                 Learn More About Us
-              </Button>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              </button>
+              <button 
+                onClick={() => navigateTo('/FarmerDashboard')}
+                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+              >
                 Get Started Today
-              </Button>
+              </button>
             </div>
           </div>
         </div>
       </section>
       
       {/* Footer */}
-      <footer className="py-8 bg-secondary/50 border-t border-border">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
+      <footer className="py-8 bg-gray-100 border-t border-gray-200">
+        <div className="container mx-auto px-4 text-center text-gray-600">
           <p>© 2025 Crop-Chain Smart Ledger. All rights reserved.</p>
         </div>
       </footer>
