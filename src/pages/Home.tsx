@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sprout, ShoppingCart, Award, Shield, TrendingUp, FileText, IndianRupee, Leaf, Menu, X, Search, Filter, CheckCircle, Clock, MapPin, Phone, Mail, Calendar, Package, AlertCircle } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { farmerImages } from "@/assets/farmerImages";
+
 
 // Mock Data
 const mockSchemes = [
@@ -209,47 +212,57 @@ const App = () => {
 
   // Home Page
   const HomePage = () => (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-200 via-green-100 to-amber-200">
+      {/* Helpline Banner */}
+      <div className="w-full bg-gradient-to-r from-yellow-400 via-green-300 to-amber-400 border-b-4 border-green-700 py-4 flex items-center justify-center gap-4 text-xl font-bold text-brown-900 shadow-lg">
+        <span role="img" aria-label="phone">📞</span> किसान हेल्पलाइन: <span className="text-green-900">1800-XXX-XXXX</span>
+        <Button size="lg" className="bg-green-800 text-white px-6 py-2 rounded-xl shadow-md border-2 border-green-900" onClick={() => window.open('https://wa.me/919876543210')}>WhatsApp सहायता</Button>
+      </div>
       <section className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 via-green-50 to-amber-100 z-0" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Kisan Seva Portal
+            <div className="space-y-8">
+              <h1 className="text-6xl md:text-7xl font-extrabold text-green-900 leading-tight drop-shadow-lg">
+                किसान सेवा पोर्टल <span className="block text-4xl text-amber-900 mt-2">Kisan Seva Portal</span>
               </h1>
-              <p className="text-xl text-gray-600">
-                Your Complete Agricultural Solution Platform
+              <p className="text-3xl text-green-800 font-bold drop-shadow">
+                आपकी खेती, आपकी तरक्की!
+                <span className="block text-xl text-gray-800 mt-2">Your Complete Agricultural Solution Platform</span>
               </p>
-              <p className="text-lg text-gray-700">
-                Access government schemes, subsidies, crop insurance, and sell directly to buyers - all in one place.
+              <p className="text-xl text-amber-900 font-semibold">
+                सरकारी योजनाएँ, बीमा, मंडी भाव, और सीधा बाजार – सब एक जगह!
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700" onClick={() => handleNavigation('schemes')}>
-                  <Award className="mr-2 h-5 w-5" />
-                  Government Schemes
+              <div className="flex flex-wrap gap-6 pt-4">
+                <Button size="lg" className="bg-green-800 hover:bg-green-900 text-2xl font-bold rounded-xl shadow-md px-8 py-3" onClick={() => handleNavigation('schemes')}>
+                  <Award className="mr-3 h-7 w-7" />
+                  सरकारी योजनाएँ / Schemes
                 </Button>
-                <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50" onClick={() => handleNavigation('insurance')}>
-                  <Shield className="mr-2 h-5 w-5" />
-                  Crop Insurance
+                <Button size="lg" variant="outline" className="border-green-800 text-green-800 hover:bg-green-50 text-2xl font-bold rounded-xl shadow-md px-8 py-3" onClick={() => handleNavigation('insurance')}>
+                  <Shield className="mr-3 h-7 w-7" />
+                  फसल बीमा / Insurance
                 </Button>
               </div>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700" onClick={() => handleNavigation('farmer')}>
-                  <Sprout className="mr-2 h-5 w-5" />
-                  Farmer Portal
+              <div className="flex flex-wrap gap-6 pt-2">
+                <Button size="lg" className="bg-amber-700 hover:bg-amber-800 text-2xl font-bold rounded-xl shadow-md px-8 py-3" onClick={() => handleNavigation('farmer')}>
+                  <Sprout className="mr-3 h-7 w-7" />
+                  किसान पोर्टल / Farmer
                 </Button>
-                <Button size="lg" variant="secondary" onClick={() => handleNavigation('marketplace')}>
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  Marketplace
+                <Button size="lg" variant="secondary" className="text-2xl font-bold rounded-xl shadow-md px-8 py-3 bg-white border-2 border-amber-700 text-amber-900" onClick={() => handleNavigation('marketplace')}>
+                  <ShoppingCart className="mr-3 h-7 w-7" />
+                  मंडी / Marketplace
                 </Button>
+              </div>
+              <div className="pt-4">
+                <span className="text-lg text-green-900 font-bold">🌾 खेती में मदद चाहिए? कॉल करें या WhatsApp करें!</span>
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-green-200 to-blue-200 rounded-2xl shadow-2xl w-full h-[400px] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Sprout className="h-32 w-32 text-green-700 mx-auto mb-4" />
-                  <p className="text-2xl font-bold text-gray-800">Empowering Indian Farmers</p>
+              <div className="bg-gradient-to-br from-yellow-300 via-green-200 to-amber-300 rounded-3xl shadow-2xl w-full h-[420px] flex items-center justify-center border-4 border-green-700">
+                <div className="text-center p-10">
+                  <Sprout className="h-36 w-36 text-green-800 mx-auto mb-6 drop-shadow-lg" />
+                  <p className="text-4xl font-extrabold text-green-900 drop-shadow">Empowering Indian Farmers</p>
+                  <p className="text-2xl text-amber-900 mt-4 font-bold">भारत के किसानों के लिए</p>
                 </div>
               </div>
             </div>
